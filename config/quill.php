@@ -1,14 +1,16 @@
 <?php
 
 return [
-    'scripts' => [
-        '/vendor/quill/quill.min.js',
-        //'https://cdn.quilljs.com/1.3.7/quill.js',
+
+    'assets' => [
+        'node_modules/quill/dist/quill.bubble.css',
+        'node_modules/quill/dist/quill.snow.css',
+        'vendor/authanram/laravel-quill/resources/js/laravel-quill.js',
+        'vendor/authanram/laravel-quill/resources/js/quill.js',
     ],
-    'styles' => [
-        '/vendor/quill/quill.bubble.css',
-        //'/vendor/quill/quill.snow.css',
-        //'https://cdn.quilljs.com/1.3.7/quill.bubble.css',
-        //'https://cdn.quilljs.com/1.3.7/quill.snow.css',
+
+    'options' => [
+        'theme' => ['bubble'/*, 'snow'*/],
     ],
+
 ];

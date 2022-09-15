@@ -1,36 +1,21 @@
 @props([
-    'contents' => '',
-    'focus' => true,
+    'contents' => null,
+    'focus' => false,
     'id' => 'quill',
-    'theme' => 'bubble',
+    'theme' => config('quill.options.theme'),
 ])
 
-<div {{ $attributes->merge(['id' => $id]) }}>{{ $slot }}</div>
+<div {{ $attributes->merge([
+    'data-type' => 'laravel-quill',
+    'id' => $id,
+]) }}>{{ is_null($contents) ? $slot : '' }}</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        let quill = new window.Quill('#{{ $id }}', {
-            theme: '{{ $theme }}',
+        window.laravelQuill('{{ $id }}', {
+            contents: {!! is_string($contents) && filled($contents) ? $contents : 'null' !!},
+            focus: {{ json_encode($focus, JSON_THROW_ON_ERROR) }},
+            theme: '{{ is_string($theme) ? $theme : $theme[0] }}',
         });
-
-        @if(is_string($contents) && $contents !== '' && $slot->isEmpty())
-            quill.setContents({!! $contents !!});
-        @endif
-
-        @if($focus === true)
-            quill.focus();
-        @endif
-
-        quill.on('text-change', (delta, old, source) => quill.container.dispatchEvent(
-            new CustomEvent('text-change', {
-                detail: {
-                    editor: () => quill,
-                    html: quill.scrollingContainer.innerHTML,
-                    id: '{{ $id }}',
-                    original: { delta, old, source },
-                    source,
-                },
-            }),
-        ));
     })
 </script>
