@@ -1,4 +1,4 @@
-# Integrates the Quill rich text editor (https://quilljs.com) as blade component.
+# Integrates the [Quill rich text editor](https://quilljs.com) as blade component.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/authanram/laravel-quill.svg?style=flat-square)](https://packagist.org/packages/authanram/laravel-quill)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/authanram/laravel-quill/run-tests?label=tests)](https://github.com/authanram/laravel-quill/actions?query=workflow%3Arun-tests+branch%3Amain)
