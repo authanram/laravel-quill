@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Authanram\LaravelQuill\Commands;
 
 use Illuminate\Console\Command;

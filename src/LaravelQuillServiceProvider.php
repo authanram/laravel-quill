@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Authanram\LaravelQuill;
 
 use Authanram\LaravelQuill\Commands\LaravelQuillCommand;
