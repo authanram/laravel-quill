@@ -2,9 +2,9 @@
 
 namespace Authanram\LaravelQuill;
 
+use Authanram\LaravelQuill\Commands\LaravelQuillCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Authanram\LaravelQuill\Commands\LaravelQuillCommand;
 
 class LaravelQuillServiceProvider extends PackageServiceProvider
 {

@@ -2,9 +2,9 @@
 
 namespace Authanram\LaravelQuill\Tests;
 
+use Authanram\LaravelQuill\LaravelQuillServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Authanram\LaravelQuill\LaravelQuillServiceProvider;
 
 class TestCase extends Orchestra
 {
