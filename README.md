@@ -24,7 +24,9 @@ php artisan vendor:publish --tag="laravel-quill-views"
 ## Usage
 
 ```html
-<x-laravel-quill />
+<x-laravel-quill :options="['focus' => true]">
+    <p>Hello World!</p>
+</x-laravel-quill>
 ```
 
 ## Testing

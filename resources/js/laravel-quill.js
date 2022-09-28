@@ -1,29 +1,26 @@
-window.laravelQuill = (id, options = { theme: 'bubble' }) => {
-    const quill = new window.Quill('#'+id, options);
+import Quill from 'quill/dist/quill.min';
+import { Editor } from './editor';
 
-    quill.on('text-change', (delta, old, source) => {
-        quill.container.dispatchEvent(
-            new CustomEvent('update', {
-                detail: {
-                    editor: () => quill,
-                    html: quill.scrollingContainer.innerHTML,
-                    id,
-                    original: { delta, old, source },
-                    source,
-                },
+window.Quill = Quill;
+
+class LaravelQuill {
+    instances = {};
+
+    create(id, options = {}) {
+        this.instances[id] = new Editor('#'+id, options);
+
+        this.instances[id].editor.container.dispatchEvent(
+            new CustomEvent('ready', {
+                detail: { editor: () => this.instances[id] },
             }),
         );
-    });
 
-    options.contents !== null && options.contents !== ''
-        ? quill.setContents(options.contents)
-        : quill.setContents(quill.getContents());
+        return this.instances[id].editor;
+    }
 
-    if (options.focus) quill.focus();
+    resolve(id) {
+        return this.instances[id] || null;
+    }
+}
 
-    quill.container.dispatchEvent(
-        new CustomEvent('ready', {
-            detail: { editor: () => quill },
-        }),
-    );
-};
+window.laravelQuill = new LaravelQuill;
