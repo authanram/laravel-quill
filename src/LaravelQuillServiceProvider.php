@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Authanram\LaravelQuill;
 
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Spatie\LaravelPackageTools\Commands\InstallCommand;
 
 class LaravelQuillServiceProvider extends PackageServiceProvider
 {
@@ -23,7 +23,7 @@ class LaravelQuillServiceProvider extends PackageServiceProvider
             ->name('laravel-quill')
             ->hasConfigFile()
             ->hasViews('laravel-quill')
-            ->hasInstallCommand(function(InstallCommand $command) {
+            ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile();
             });

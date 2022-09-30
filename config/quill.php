@@ -18,6 +18,6 @@ return [
 
     'options' => [
         'theme' => 'bubble',
-    ]
+    ],
 
 ];
