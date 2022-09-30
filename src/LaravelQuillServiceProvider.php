@@ -21,7 +21,7 @@ class LaravelQuillServiceProvider extends PackageServiceProvider
     {
         $package
             ->name('laravel-quill')
-            ->hasConfigFile()
+            ->hasConfigFile('laravel-quill')
             ->hasCommand(LaravelQuillCommand::class)
             ->hasViews('laravel-quill');
     }
