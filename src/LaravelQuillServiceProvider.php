@@ -10,7 +10,7 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class LaravelQuillServiceProvider extends PackageServiceProvider
 {
-    public function boot()
+    public function bootingPackage()
     {
         $this->publishes([
             __DIR__.'/../dist' => public_path('vendor/authanram/laravel-quill'),
@@ -23,6 +23,6 @@ class LaravelQuillServiceProvider extends PackageServiceProvider
             ->name('laravel-quill')
             ->hasConfigFile()
             ->hasCommand(LaravelQuillCommand::class)
-            ->hasViews();
+            ->hasViews('laravel-quill');
     }
 }
