@@ -13,15 +13,17 @@ export class LaravelQuill {
     }
 
     create(id, options = {}) {
-        this.instances[id] = new this.builderCallback('#'+id, options);
+        this.instances[id] = this.builderCallback(id, options);
 
-        this.instances[id].editor.container.dispatchEvent(
-            new CustomEvent('ready', {
-                detail: { editor: () => this.instances[id] },
-            }),
-        );
+        document.addEventListener('DOMContentLoaded', () => {
+            this.instances[id].editor.container.dispatchEvent(
+                new CustomEvent('ready', {
+                    detail: { editor: () => this.instances[id] },
+                }),
+            );
+        });
 
-        return this.instances[id].editor;
+        return this.instances[id];
     }
 
     resolve(id) {

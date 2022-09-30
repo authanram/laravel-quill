@@ -1,4 +1,4 @@
-@props(['themes' => config('quill.themes')])
+@props(['theme' => config('quill.assets.themes')])
 
 @php($themes = is_string($theme) ? [$theme] : $theme)
 

@@ -1,6 +1,6 @@
 @php(
-    $scripts = collect(config('quill.scripts'))
-        ->add('/vendor/authanram/laravel-quill.min.js')
+    $scripts = collect(config('quill.assets.scripts'))
+        ->add('/vendor/authanram/laravel-quill/laravel-quill.mjs')
         ->toArray()
 )
 

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Authanram\LaravelQuill;
 
-use Authanram\LaravelQuill\Commands\LaravelQuillCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
 
 class LaravelQuillServiceProvider extends PackageServiceProvider
 {
@@ -14,15 +14,18 @@ class LaravelQuillServiceProvider extends PackageServiceProvider
     {
         $this->publishes([
             __DIR__.'/../dist' => public_path('vendor/authanram/laravel-quill'),
-        ], 'public');
+        ], 'quill-assets');
     }
 
     public function configurePackage(Package $package): void
     {
         $package
             ->name('laravel-quill')
-            ->hasConfigFile('laravel-quill')
-            ->hasCommand(LaravelQuillCommand::class)
-            ->hasViews('laravel-quill');
+            ->hasConfigFile()
+            ->hasViews('laravel-quill')
+            ->hasInstallCommand(function(InstallCommand $command) {
+                $command
+                    ->publishConfigFile();
+            });
     }
 }
