@@ -1,13 +1,19 @@
-import Quill from 'quill/dist/quill.min';
-import { Editor } from './editor';
-
-window.Quill = Quill;
-
-class LaravelQuill {
+export class LaravelQuill {
+    builderCallback = () => null;
     instances = {};
 
+    constructor(callback) {
+        this.builderCallback = callback;
+    }
+
+    setBuilderCallback(builderCallback) {
+        this.builderCallback = builderCallback;
+
+        return this;
+    }
+
     create(id, options = {}) {
-        this.instances[id] = new Editor('#'+id, options);
+        this.instances[id] = new this.builderCallback('#'+id, options);
 
         this.instances[id].editor.container.dispatchEvent(
             new CustomEvent('ready', {
@@ -22,5 +28,3 @@ class LaravelQuill {
         return this.instances[id] || null;
     }
 }
-
-window.laravelQuill = new LaravelQuill;

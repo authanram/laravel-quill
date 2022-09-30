@@ -10,6 +10,13 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class LaravelQuillServiceProvider extends PackageServiceProvider
 {
+    public function boot()
+    {
+        $this->publishes([
+            __DIR__.'/../dist' => public_path('vendor/authanram/laravel-quill'),
+        ], 'public');
+    }
+
     public function configurePackage(Package $package): void
     {
         $package

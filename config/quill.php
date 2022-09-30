@@ -2,14 +2,13 @@
 
 return [
 
-    'assets' => [
-        'node_modules/quill/dist/quill.bubble.css',
-        'node_modules/quill/dist/quill.snow.css',
-        'vendor/authanram/laravel-quill/resources/js/laravel-quill.js',
+    'scripts' => [
+        'https://cdn.quilljs.com/1.3.7/quill.min.js',
     ],
 
-    'options' => [
-        'theme' => ['bubble'/*, 'snow'*/],
+    'themes' => [
+        'bubble' => 'https://cdn.quilljs.com/1.3.7/quill.bubble.css',
+        //'snow' => 'https://cdn.quilljs.com/1.3.7/quill.snow.css',
     ],
 
 ];
