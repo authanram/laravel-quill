@@ -1,11 +1,11 @@
-# Integrates the [Quill rich text editor](https://quilljs.com) as blade component.
+# Work in progress
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/authanram/laravel-quill.svg?style=flat-square)](https://packagist.org/packages/authanram/laravel-quill)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/authanram/laravel-quill/run-tests?label=tests)](https://github.com/authanram/laravel-quill/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/authanram/laravel-quill/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/authanram/laravel-quill/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/authanram/laravel-quill.svg?style=flat-square)](https://packagist.org/packages/authanram/laravel-quill)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Integrates the [Quill rich text editor](https://quilljs.com) as blade component.
 
 ## Installation
 
@@ -15,7 +15,7 @@ You can install the package via composer:
 composer require authanram/laravel-quill
 ```
 
-Optionally, you can publish the views using
+Optionally, you can publish the views using:
 
 ```bash
 php artisan vendor:publish --tag="laravel-quill-views"
